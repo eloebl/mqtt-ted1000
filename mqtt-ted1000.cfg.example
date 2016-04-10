@@ -1,0 +1,10 @@
+[global]
+DEBUG = False
+LOGFILE = /var/log/mqtt-ted1000.log
+MQTT_HOST = 10.0.0.1
+MQTT_PORT = 1883
+MQTT_TOPIC = /#
+MQTT_SUBTOPIC = /ted1000/
+DEVICE=/dev/ttyUSB0
+POLLINTERVAL = 1
+METRICUNITS = 0
