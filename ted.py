@@ -38,7 +38,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-
+#########################
+#
+# Modified by Mike Loebl  to add additional values
+#from source: http://www.bananabend.net/energy_detective/ted5.py.good
+#
+#########################
 import serial
 import time
 import binascii
