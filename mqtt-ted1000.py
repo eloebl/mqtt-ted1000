@@ -43,7 +43,7 @@ DEVICE = config.get("global", "device")
 owserver = "localhost"
 
 APPNAME = "ted1000"
-PRESENCETOPIC = "/clients/" + socket.getfqdn() + "/" + APPNAME + "/state"
+PRESENCETOPIC = "clients/" + socket.getfqdn() + "/" + APPNAME + "/state"
 setproctitle.setproctitle(APPNAME)
 client_id = APPNAME + "_%d" % os.getpid()
 
