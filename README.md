@@ -17,5 +17,6 @@ cp /usr/local/mqtt-ted1000/mqtt-ted1000.init /etc/init.d/mqtt-ted1000
 pdate-rc.d mqtt-ted1000 defaults
 cp /usr/local/mqtt-ted1000p/mqtt-ted1000.default /etc/default/mqtt-ted1000
 ```
-Edit /etc/default/mqttted1000 and /etc/mqtt-ted1000/mqtt-ted1000.cfg to suit"
+Edit /etc/default/mqttted1000 and /etc/mqtt-ted1000/mqtt-ted1000.cfg to suit:
+
 `/etc/init.d/mqtt-ted1000 start`
