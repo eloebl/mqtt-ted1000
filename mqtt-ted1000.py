@@ -35,6 +35,8 @@ MQTT_HOST = config.get("global", "mqtt_host")
 MQTT_PORT = config.getint("global", "mqtt_port")
 MQTT_SUBTOPIC = config.get("global", "MQTT_SUBTOPIC")
 MQTT_TOPIC = "/raw/" + socket.getfqdn() + MQTT_SUBTOPIC
+MQTT_USERNAME = config.get("global", "MQTT_USERNAME")
+MQTT_PASSWORD = config.get("global", "MQTT_PASSWORD")
 METRICUNITS = config.get("global", "METRICUNITS")
 
 POLLINTERVAL = config.getint("global", "pollinterval")
@@ -186,12 +188,18 @@ def connect():
     The LWT will be published in the event of an unclean or
     unexpected disconnection.
     """
-    logging.debug("Connecting to %s:%s", MQTT_HOST, MQTT_PORT)
+    logging.info("Connecting to %s:%s", MQTT_HOST, MQTT_PORT)
+
+    if MQTT_USERNAME:
+        logging.info("Found username %s", MQTT_USERNAME)
+        mqttc.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
+
     # Set the Last Will and Testament (LWT) *before* connecting
     mqttc.will_set(PRESENCETOPIC, "0", qos=0, retain=True)
     result = mqttc.connect(MQTT_HOST, MQTT_PORT, 60)
     if result != 0:
         logging.info("Connection failed with error code %s. Retrying", result)
+        
         time.sleep(10)
         connect()
 
